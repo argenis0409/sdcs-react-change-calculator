@@ -6,7 +6,6 @@
   "scripts": {
     "build": "webpack",
     "start": "npm run build && node server/index.js",
-    "heroku-postbuild": "npm run build",
     "lint": "eslint .",
     "test": "npm run build && mocha test/.setup.js test/*.spec.js --exit"
   },
