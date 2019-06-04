@@ -10,7 +10,7 @@
     "test": "npm run build && mocha test/.setup.js test/*.spec.js --exit"
   },
   "engines": {
-    "node": "10.3.0"
+    "node": "12.3.1"
   },
   "dependencies": {
     "ajv": "^5.5.2",
@@ -31,6 +31,7 @@
     "morgan": "^1.9.1",
     "nightmare": "^3.0.2",
     "nightmare-react-utils": "^1.0.4",
+    "node": "^12.3.1",
     "npm": "^6.9.0",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
