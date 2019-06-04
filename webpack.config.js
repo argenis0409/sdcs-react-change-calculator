@@ -1,7 +1,6 @@
 const path = require('path');
 
 module.exports = {
-  mode: 'none',
   context: path.join(__dirname, '/src'),
 
   entry: {
