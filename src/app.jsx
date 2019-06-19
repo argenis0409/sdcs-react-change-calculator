@@ -14,7 +14,7 @@ class App extends Component {
       dimes: '0',
       nickels: '0',
       pennies: '0',
-      output: '',
+      output: 'Total change here'
     }
 
     this.calculate = this.calculate.bind(this);
@@ -27,7 +27,17 @@ class App extends Component {
 
   calculate() {
     var amountDue = this.state.amountDue;
+    if (amountDue == '') {
+      alert('please type amout due');
+      return false;
+    }
+
     var amountReceived = this.state.amountReceived;
+    if (amountReceived == '') {
+      alert('please type amount received');
+      return false;
+    }
+
     var m = amountReceived - amountDue;
 
     var dollars = Math.floor(m);
@@ -63,64 +73,99 @@ class App extends Component {
 
     return (
       <div className="container">
-        <h1>Change Calculator</h1>
-        <br />
-        
-        <div className="panel panel-default col-sm-8">
-        <div>
-        <strong>How much is due </strong><input name="amountDue" type="number" onChange={this.handleEvent} value={this.state.amountDue} />
+        <h1>Change calculator</h1>
+        <hr />
+
+        <div className="row">
+          <div className="col-sm-4">
+            <div className="panel panel-default">
+              <div className="panel panel-heading panel-title text-info">enter information</div>
+              <div className="panel-body">
+                <strong>How much is due?</strong>
+                <br />
+
+                <input type="number" name="amountDue" placeholder="enter amount due" className="amount-due" onChange={this.handleEvent} value={this.state.amountDue} />
+              </div>
+
+              <div className="panel-body">
+                <strong>How much was received?</strong>
+                <input type="number" name="amountReceived" placeholder="enter amount received" className="amount-received" onChange={this.handleEvent} value={this.state.amountReceived} />
+              </div>
+
+
+              <div className="panel panel-footer">
+                <button type="button" className="btn btn-primary btn-block" onClick={this.calculate} >Calculate</button>
+              </div>
+
+            </div>
+          </div>
+
+          <div className='col-md-8 results-wrapper'>
+            <div className='panel panel-default'>
+              <div className='panel-body'>
+                <div className='alert alert-success' id="output">{this.state.output} </div>
+
+                <div className='col-md-3'>
+                  <div className='card'>
+                    <h4 className='text-center'>Twenties</h4>
+                    <p name='output-twenties' className='lead text-center change'>{this.state.twenties}</p>
+                  </div>
+                </div>
+
+                <div className='col-md-3'>
+                  <div className='card'>
+                    <h4 className='text-center'>Tens</h4>
+                    <p name='output-tens' className='lead text-center change'>{this.state.tens}</p>
+                  </div>
+                </div>
+
+                <div className='col-md-3'>
+                  <div className="card">
+                    <h4 className='text-center'>Fives</h4>
+                    <p name='output-fives' className='lead text-center change'>{this.state.fives}</p>
+                  </div>
+                </div>
+
+                <div className='col-md-3'>
+                  <div className='card'>
+                    <h4 className='text-center'>Ones</h4>
+                    <p name='output-ones' className='lead text-center change'>{this.state.ones}</p>
+                  </div>
+                </div>
+
+                <div className='col-md-3'>
+                  <div className='card'>
+                    <h4 className='text-center'>Quarters</h4>
+                    <p name='output-quarters' className='lead text-center change'>{this.state.quarters}</p>
+                  </div>
+                </div>
+
+                <div className='col-md-3'>
+                  <div className='card'>
+                    <h4 className='text-center'>Dimes</h4>
+                    <p name='output-dimes' className='lead text-center change'>{this.state.dimes}</p>
+                  </div>
+                </div>
+
+                <div className='col-md-3'>
+                  <div className='card'>
+                    <h4 className='text-center'>Nickels</h4>
+                    <p name='output-nickels' className='lead text-center change'>{this.state.nickels}</p>
+                  </div>
+                </div>
+
+                <div className='col-md-3'>
+                  <div className='card'>
+                    <h4 className='text-center'>Pennies</h4>
+                    <p name='output-pennies' className='lead text-center change'>{this.state.pennies}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-
-        <div>
-        <strong>How much was received</strong><input name="amountReceived" type="number" onChange={this.handleEvent} value={this.state.amountReceived} />
-        </div>
-
-        <button className="btn btn-primary" onClick={this.calculate}>calculate</button>
-        </div>
-
-        <div className='alert alert-success' id="output">{this.state.output} </div>
-
-        <div>
-          <h1>Twenties</h1>
-          <p className="change">{this.state.twenties}</p>
-        </div>
-
-        <div>
-          <h1>Tens</h1>
-          <p className="change">{this.state.tens}</p>
-        </div>
-
-        <div>
-          <h1>Fives</h1>
-          <p className="change">{this.state.fives}</p>
-        </div>
-
-        <div>
-          <h1>Ones</h1>
-          <p className="change">{this.state.ones}</p>
-        </div>
-
-        <div>
-          <h1>Quarters</h1>
-          <p className="change">{this.state.quarters}</p>
-        </div>
-
-        <div>
-          <h1>Dimes</h1>
-          <p className="change">{this.state.dimes}</p>
-        </div>
-
-        <div>
-          <h1>Nickels</h1>
-          <p className="change">{this.state.nickels}</p>
-        </div>
-
-        <div>
-          <h1>Pennies</h1>
-          <p className="change">{this.state.pennies}</p>
-        </div>
-
       </div>
+
     )
   }
 }
