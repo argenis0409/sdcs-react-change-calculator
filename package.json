@@ -29,7 +29,7 @@
     "nightmare": "^3.0.2",
     "nightmare-react-utils": "^1.0.4",
     "node": "^12.3.1",
-    "npm": "^6.9.0",
+    "npm": "^6.13.4",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "serve-favicon": "^2.0.1",
